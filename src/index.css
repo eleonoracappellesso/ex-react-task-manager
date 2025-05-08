@@ -1,0 +1,19 @@
+nav {
+    background-color: #eee;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: darkgreen;
+    text-decoration: underline;
+}
