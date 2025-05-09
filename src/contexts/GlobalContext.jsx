@@ -1,29 +1,15 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
+import useTasks from "../hooks/useTasks";
 
 export const GlobalContext = createContext();
 
 export function GlobalProvider({ children }) {
-    const [tasks, setTasks] = useState([]);
 
-    useEffect(() => {
-        const fetchTasks = async () => {
-            try {
-                const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks`);
-                if (!res.ok) {
-                    throw new Error("Errore di risposta della rete");
-                }
-                const data = await res.json();
-                console.log("Dati ricevuti:", data);
-                setTasks(data);
-            } catch (error) {
-                console.error("Errore nel recupero dei task:", error);
-            }
-        };
-        fetchTasks();
-    }, []);
+    //mi passo le informazioni attraverso l'hook creato
+    const taskData = useTasks();
 
     return (
-        <GlobalContext.Provider value={{ tasks, setTasks }}>
+        <GlobalContext.Provider value={{ ...taskData }}>
             {children}
         </GlobalContext.Provider>
     );
