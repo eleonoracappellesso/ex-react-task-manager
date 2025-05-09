@@ -8,7 +8,7 @@ export function GlobalProvider({ children }) {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const res = await fetch(`${import.meta.env.API_URL}/tasks`);
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks`);
                 if (!res.ok) {
                     throw new Error("Errore di risposta della rete");
                 }

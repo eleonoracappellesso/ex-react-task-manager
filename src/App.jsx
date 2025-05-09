@@ -9,14 +9,13 @@ export default function App() {
       <BrowserRouter>
 
         <nav>
-          <NavLink to="/taskList" className="nav-link">Lista Task</NavLink>
+          <NavLink to="/" className="nav-link">Lista Task</NavLink>
           <NavLink to="/addTask" className="nav-link">Aggiungi Task</NavLink>
         </nav>
 
         <Routes>
-          <Route path="/taskList" element={<TaskList />} />
+          <Route path="/" element={<TaskList />} />
           <Route path="/addTask" element={<AddTask />} />
-          <Route path="/" element={<TaskList />} /> {/* homepage */}
         </Routes>
       </BrowserRouter>
     </GlobalProvider>
