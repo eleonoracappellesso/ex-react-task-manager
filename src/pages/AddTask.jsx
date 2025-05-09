@@ -1,14 +1,16 @@
-import { useState, useRef, useMemo } from "react"
+import { useState, useRef, useMemo, useContext } from "react"
+import { GlobalContext } from "../contexts/GlobalContext";
 
 const symbols = `!@#$%^&*()-_=+[]{}|;:'\\",.<>?/\`~"`;
 
 export default function AddTask() {
+    const { addTask } = useContext(GlobalContext);
 
     const [taskName, setTaskName] = useState("");
     const descriptionRef = useRef();
     const statusRef = useRef();
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         if (nameError)
             return;
@@ -19,7 +21,17 @@ export default function AddTask() {
             status: statusRef.current.value
         };
 
-        console.log("Nuova Task:", newTask)
+        // console.log("Nuova Task:", newTask)
+
+        try {
+            await addTask(newTask);
+            alert("Task creata corretamente!")
+            setTaskName("");
+            descriptionRef.current.value = "";
+            statusRef.current.value = "";
+        } catch (error) {
+            alert(error.message);
+        }
     }
 
     const nameError = useMemo(() => {
@@ -61,9 +73,9 @@ export default function AddTask() {
                 <label>Stato:
                     <select
                         ref={statusRef}
-                        defaultValue="To Do"
+                        defaultValue="To do"
                     >
-                        {["To Do", "Doing", "Done"].map((value, index) => (
+                        {["To do", "Doing", "Done"].map((value, index) => (
                             <option key={index} value={value}>{value}</option>
                         ))}
                     </select>
