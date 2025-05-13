@@ -115,6 +115,7 @@ select:focus {
 button {
     width: 150px;
     padding: 10px;
+    margin-right: 10px;
     background-color: #4caf50;
     color: white;
     border: none;
