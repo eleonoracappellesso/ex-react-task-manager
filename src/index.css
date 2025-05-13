@@ -115,13 +115,78 @@ select:focus {
 button {
     width: 150px;
     padding: 10px;
-    background-color: rgb(106, 210, 106);
+    background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 button:hover {
+    background-color: darkgreen;
+}
+
+/*stile modale*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modal-actions button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.modal-actions button:first-of-type {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.modal-actions button:first-of-type:hover {
+    background-color: #939393;
+}
+
+.modal-actions button:last-of-type {
+    background-color: #4caf50;
+    color: white;
+}
+
+.modal-actions button:last-of-type:hover {
     background-color: darkgreen;
 }
