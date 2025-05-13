@@ -35,6 +35,14 @@ h1 {
     color: #333;
 }
 
+.search-input {
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+}
+
 /*stile tabella*/
 table {
     width: 100%;
